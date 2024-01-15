@@ -1,0 +1,377 @@
+:root{
+    --primary-color:#3366cc;
+    --secundary-color:#a2a9b1;
+    --fontsize-big:1.6rem;
+    --fontsize-medio:1.3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Arimo', sans-serif;
+}
+
+main{
+    width: auto;
+    height: auto;
+}
+
+
+/*HEADER*/
+.header-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    font-family: serif;
+    margin-top: 30px;
+}
+
+.header-container .tittle{
+    font-weight: normal;
+    font-size: 4rem;
+}
+
+header p{
+    font-size: 1.5rem;
+}
+
+
+/*SECTION NAV*/
+
+.nav-list li h4{
+    color:  var(--primary-color);
+    font-size: var(--fontsize-big);
+}
+.nav-list li p{
+    color: var(--secundary-color);
+    font-size: var(--fontsize-medio);
+}
+
+.nav-list li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 10px 200px 100px 200px 10px;
+    grid-template-rows: repeat(5,60px);
+    justify-content: center;
+    gap: 15px;
+    font-size: 'arial';
+}
+
+.nav-list li:nth-child(1){
+    grid-column: 2;
+    justify-self: center;
+}
+
+.nav-list li:nth-child(2){
+    grid-column: 4;
+    justify-self: center;
+}
+
+.nav-list li:nth-child(3){
+    grid-row: 2;
+    grid-column: 2;
+    justify-self: start;
+}
+
+.nav-list li:nth-child(4){
+    grid-row: 2;
+    grid-column: 4;
+    justify-self: end;
+}
+
+.nav-list li:nth-child(5){
+    grid-row: 3;
+    grid-column: 1 /span 2;
+    justify-self: start;
+}
+
+.nav-list li:nth-child(6){
+    grid-row: 3;
+    grid-column: 4 /span 2;
+    justify-self: end;
+}
+
+.nav-list li:nth-child(7){
+    grid-row: 4;
+    grid-column: 2;
+    justify-self: start;
+}
+
+.nav-list li:nth-child(8){
+    grid-row: 4;
+    grid-column: 4;
+    justify-self: end;
+}
+
+.nav-list li:nth-child(9){
+    grid-row: 5;
+    grid-column: 2;
+    justify-self: center;
+}
+
+.nav-list li:nth-child(10){
+    grid-row: 5;
+    grid-column: 4;
+    justify-self: center;
+}
+
+.nav .img-fondo{
+    grid-row: 2/span 3;
+    grid-column: 2/span3;
+    justify-self: center;
+    align-self: center;
+    width: 200px;
+    height: 200px;
+}
+
+/*SECTION LABEL*/
+
+.section-input-conteiner{
+    width: 450px;
+    margin: 20px auto 0 auto;
+}
+
+.section-input-conteiner .input-select-container{
+    width: auto;
+    height: 45px;
+}
+
+.button-buscar img{
+    width: 20px;
+    height: 20px;
+}
+
+.section-input-conteiner .input-select-container{
+    display: flex;
+    justify-content: center;
+}
+
+.section-input-conteiner .input-select-container div{
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--secundary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-input-conteiner .input-select-container div input{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.section-input-conteiner .input-select-container div select{
+    width: 38px;
+    height: auto;
+    border: none;
+}
+
+.section-input-conteiner .input-select-container .button-buscar{
+    background-color: var(--primary-color);
+    width: 70px;
+    height: 100%;
+    cursor: pointer;
+}
+
+/*/Seccion boton inicio*/
+
+ .section-button-inicio{
+    width: 100%;
+    height: 40px;
+    margin: 30px 0 40px 0;
+    display: flex;
+    justify-content: center;
+} 
+
+.section-button-inicio .button-container{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 5px;
+    align-items: center;
+    width: 40%;
+
+}
+
+.section-button-inicio .button-container .button-inicio{
+    width: 260px;
+    height: 100%;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+
+/*Section apps wikipedia*/
+
+.nav-wikipedia{
+    width: 100%;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+}
+
+.nav-wikipedia-list-container .list-nav{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5,100px);
+    align-items: center;
+}
+
+.nav-wikipedia-list-container .list-nav img{
+    width: 50px;
+    height: 50px;
+}
+
+.nav-wikipedia-list-container .list-nav li{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+    padding-left: 3px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.nav-wikipedia-list-container .list-nav li:hover{
+    background-color: #eaecf0;
+}
+
+.nav-wikipedia-list-container .list-nav li div{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+}
+.nav-wikipedia-list-container .list-nav li div h5{
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    font-weight: normal;
+}
+
+.nav-wikipedia-list-container .list-nav li div p{
+    font-size: 1rem;
+    color: var(--secundary-color);
+}
+
+/*Section download wikipedia*/
+
+.apps-wikipedia-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1.3rem;
+    text-align: justify;
+    line-height: 20px;
+    margin: 0 20px;
+}
+
+.fundation-container{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.fundation-container div{
+    margin-left: 10px;
+}
+
+.fundation-container div a{
+    text-decoration: none;
+}
+
+.fundation-container div a:hover{
+    text-decoration: underline;
+}
+
+.fundation-container img{
+    width: 50px;
+    height: 50px;
+}
+
+.download-container{
+    display: flex;
+    background-color: #efefef;
+    padding: 10px;
+}
+
+.download-container div{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.download-container div p{
+    margin-top: 10px;
+}
+
+.download-container .icon-wikipedia{
+    width: 30px;
+    height: 30px;
+    justify-self: center;
+    margin: 5px 5px 0 5px;
+}
+
+.download-container div a{
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+}
+
+.download-container .icon-playStore img{
+    width: 110px;
+    height: 50px;
+}
+
+.download-container .icon-appStore img{
+    width: 100px;
+    height: 50px;
+}
+
+/*Footer*/
+
+
+.footer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin: 10px 0;
+    width: 100%;
+    height: 40px;
+}
+
+.footer-container a{
+    margin: 0 2px;
+}
+
+.footer-container ul{
+    display: flex;
+    margin-left: 20px;
+}
+
+.footer-container ul li{
+    margin-right: 20px;
+}
