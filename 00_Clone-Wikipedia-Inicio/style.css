@@ -193,9 +193,8 @@ header p{
 }
 
 .section-input-container .input-select-container div select{
-    width: 38px;
-    height: auto;
     border: none;
+    background: none;
 }
 
 .button-buscar img{
@@ -415,7 +414,7 @@ header p{
     }
 
     .nav-container .nav-list{
-        grid-template-columns: repeat(auto-fill,200px);
+        grid-template-columns: repeat(auto-fill,150px);
     }
 
     .nav-container .nav-list li{
