@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
 
     <main class="main-container">
 
-        <section class="nav-container">
+        <section class="nav-container opacidad">
             <nav class="nav">
                 <ul class="nav-list">
 
@@ -76,13 +76,11 @@
                         <p>1 904 000+ artículos</p>
                     </li>
 
-                    <img src="./imagenes/00_fondo-wikipedia.png" alt="WIKIPEDIA" class="img-fondo">
-
                 </ul>
             </nav>
         </section>
         
-        <section class="section-input-conteiner">
+        <section class="section-input-container">
  
             <form class="input-select-container" >
                 <div>
@@ -107,18 +105,17 @@
         <section class="section-button-inicio">
             <div class="button-container">
                 <hr>
+
                 <button class="button-inicio">
                     <img src="./imagenes/01_Icon-Idioma.png" alt="Idioma">
                     <p>Leer Wikipedia en tu idioma</p>
-                    <img src="" alt="">
-                    <i></i>
                 </button>
+
                 <hr>
             </div>
 
         </section>
 
-        <hr>
 
         <section class="nav-wikipedia">
             <div class="apps-wikipedia-container">
@@ -269,13 +266,7 @@
         </ul>
     </footer>
 
-    <script>
-        function mostrarAbreviacion() {
-          var select = document.getElementById("idioma");
-          var opcionSeleccionada = select.options[select.selectedIndex];
-          opcionSeleccionada.text = opcionSeleccionada.value;
-        }
-      </script>
+    <script src="./main.js"></script>
 
 </body>
 </html>
