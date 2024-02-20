@@ -55,6 +55,7 @@ main{
 .fondo-container div h3{
     font-weight: 400;
     font-size: 2.6rem;
+    text-align: center;
 }
 
 .fondo-container div button{
@@ -112,6 +113,7 @@ main{
     align-items: center;
     margin-top: 10px;
 }
+
 .contenedor-login-register form .input-info i{
     grid-row: 1;
     grid-column: 1;
@@ -169,6 +171,19 @@ main{
 
 /* RESPONSIVE DESIGN */
  @media (max-width: 800px){
+
+    main{
+        display: block;
+    }
+
+    #formulario-container{
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
     .fondo-container{
         display: flex;
         flex-direction: column;
@@ -180,6 +195,7 @@ main{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 10px auto;
     }
 
     .fondo-container .ingesar-register{
@@ -187,6 +203,20 @@ main{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 10px auto;
+    }
+
+    #formulario-container .contenedor-login-register{
+        position: static;
+        
+    }
+
+    #formulario-container .contenedor-login-register #formulario-iniciar{
+        position: static;
+    }
+
+    #formulario-container .contenedor-login-register #formulario-register{
+        position: static;
     }
  }
 
