@@ -25,22 +25,39 @@ body{
     font-weight: 400;
 }
 
+header{
+    width: 100%;
+}
+
+header h1{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 10px auto;
+}
+
 .main-tittle{
     display:block;
     font-size: 2.5rem;
+    padding: 10px;
 }
 
 .subtitle{
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+/* SECCION MAIN */
+main{
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .cards{
     position: relative;
-    width: 1200px;
-    height: 550px;
-
+    width: 100%;
+    height: 400px;
     margin:5em auto;
 }
 
@@ -51,14 +68,16 @@ body{
 
 .card-icon{
     position: absolute;
+    width: 50px;
+    height: 50px;
     right: 2em;
     bottom: 2em;
 }
 
 .card{
     position: absolute;
-    width: 350px;
-    height: 250px;
+    width: 200px;
+    height: 170px;
     padding: 2em 2em;
     background-color: var(--white);
     border-radius: 10px;
@@ -84,25 +103,27 @@ body{
 
 .card--left, 
 .card--right{
-    top: 150px;
+    top: 50%;
+    transform: translate(0,-50%);
 }
 
 .card--top,
 .card--bottom{
-    left: 425px;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .card--left{
-    left: 0;
+    left: 200px;
 }
 .card--top{
-    top: 0;
+    top: 20px;
 }
 .card--right{
-    right: 0;
+    right: 200px;
 }
 .card--bottom{
-    bottom: 0;
+    bottom: 20px;
 }
 
 .text-light{
@@ -115,4 +136,40 @@ body{
 
 .text-bold{
     font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px){
+    .cards{
+        width: 90%;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+        height: auto;
+    }
+
+    .card{
+        position: static;
+        width: 100%;
+        height: 200px;
+    }
+
+    .card .card-icon{
+        width: 70px;
+        height: 70px;
+    }
+
+    .card--left, 
+    .card--right{
+    transform: translate(0);
+    }
+
+    .card--top,
+    .card--bottom{
+    transform: translate(0);
+    }
+
 }
