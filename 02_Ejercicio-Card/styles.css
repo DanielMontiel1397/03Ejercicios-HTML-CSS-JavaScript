@@ -7,7 +7,10 @@
         background-color: hsL(185, 75%, 39%);
         font-family: sans-serif;
         font-size: 1.3rem;
+        width: 100vw;
+        height: 500px;
         overflow: hidden;
+        position: relative;
     }
 
     .bg-image{
@@ -18,6 +21,7 @@
         height: 700px;
         top: -400px;
         left: -100px;
+        transform: rotate(90deg);
     }
     .bg-image-bottom{
         width: 700px;
@@ -27,11 +31,11 @@
     }
     .card{
         position: relative;
-        top: 12vh;
+        top: 50%;
+        transform: translate(0,-50%);
         width: 400px;
         height: 450px;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
         background-color: white;
         border-radius: 20px;
         overflow: hidden;
@@ -52,9 +56,13 @@
 
     .card_header-profile{
         position: absolute;
-        top: 90px;
-        left: 150px;
-        border-radius: 50px;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 50%;
         border: 5px solid white;
         background-color: white;
     }
@@ -93,5 +101,24 @@
     .card_number{
         margin-bottom: 0.5em;
         font-size: 1.8rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+        .bg-image-top,
+        .bg-image-bottom{
+            width: 400px;
+            height: 400px;
+        }
+
+        .bg-image-top{
+            top: -200px;
+            left: -50px;
+        }
+
+        .bg-image-bottom{
+            bottom: -200px;
+            right: -50px;
+        }
     }
     
