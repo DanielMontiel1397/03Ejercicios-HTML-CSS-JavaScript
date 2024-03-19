@@ -1,15 +1,25 @@
 //SELECTORES
-const contenedorPersonajes = document.querySelector('#personajes-container');
+const contenedorPersonajes = document.querySelector('#personajes #personajes-container');
 const modalPersonajes = document.querySelector('#modal-container');
 
+//Selector favoritos
+const contenedorFavoritos = document.querySelector('#personajes-favoritos #personajes-container');
 
+const resultado = document.querySelector('#personajes-container');
 //Variables
-const registrosPagina = 10;
+const registrosPagina = 12;
 let totalPaginas;
 let iterador;
 let paginaActual = 1;
 document.addEventListener('DOMContentLoaded',()=>{
-    cargarPersonajes();
+    if(contenedorPersonajes){
+        cargarPersonajes();
+    }
+
+    //Ventana Favoritos
+    if(contenedorFavoritos){
+        mostrarFavoritos();
+    }
 })
 
 function cargarPersonajes(){
@@ -22,8 +32,8 @@ function cargarPersonajes(){
 }
 
 function mostrarHTMLPersonajes(personajes){
-    
-    limpiarHTMLPersonajes();
+    console.log(personajes);
+    limpiarHTMLPersonajes(resultado);
 
     //Iterar sobre cada personaje
 
@@ -74,7 +84,7 @@ function mostrarHTMLPersonajes(personajes){
         contenedorPersonaje.appendChild(contenedorImagen);
         contenedorPersonaje.appendChild(informacionPersonaje);
 
-        contenedorPersonajes.appendChild(contenedorPersonaje);
+        resultado.appendChild(contenedorPersonaje);
     })
 
 
@@ -88,10 +98,10 @@ function mostrarHTMLPersonajes(personajes){
     imprimirPaginador();
 }
 
-function limpiarHTMLPersonajes(){
+function limpiarHTMLPersonajes(contenedor){
 
-    while(contenedorPersonajes.firstChild){
-        contenedorPersonajes.removeChild(contenedorPersonajes.firstChild)
+    while(contenedor.firstChild){
+        contenedor.removeChild(contenedor.firstChild)
     }
 
 }
@@ -99,8 +109,7 @@ function limpiarHTMLPersonajes(){
 function mostrarModal(personaje){
     //Borrar modales abiertos
     borrarHTMLModal();
-
-    const {name,description,image} = personaje;
+    const {name,description,image,id} = personaje;
 
     const modalContainer = document.createElement('div');
     modalContainer.classList.add('descripcion-personaje');
@@ -136,7 +145,7 @@ function mostrarModal(personaje){
 
     const btnFavoritos = document.createElement('button');
     btnFavoritos.classList.add('btnFavoritos');
-    btnFavoritos.textContent = "Guardar Favoritos";
+    btnFavoritos.textContent = existeFavorito(personaje) ? "Eliminar Favorito" : "Guardar Favorito";
     
     const btnCerrarModal = document.createElement('button');
     btnCerrarModal.classList.add('btnCerrar');
@@ -145,6 +154,7 @@ function mostrarModal(personaje){
     //Cerrar modal
     btnCerrarModal.onclick = function(){
         borrarHTMLModal();
+        
     }
 
     btnContenedor.appendChild(btnFavoritos);
@@ -161,16 +171,58 @@ function mostrarModal(personaje){
     //Agregar contenedor modal a Seccion
     modalPersonajes.appendChild(modalContainer);
 
+    modalPersonajes.style.opacity = "1";
+    modalPersonajes.style.left = "50%";
+    modalPersonajes.style.transform = "translate(-50%,0)";
+
+        //Agregar a Favoritos
+        btnFavoritos.onclick = function (){
+
+            if(!existeFavorito(personaje)){
+                agregarFavorito(personaje)
+                btnFavoritos.textContent = "Eliminar Favorito";
+            } else{
+                eliminarFavorito(personaje);
+                btnFavoritos.textContent = "Guardar Favorito";
+                borrarHTMLModal();
+                return;
+            }
+        }
+
 }
 
 function borrarHTMLModal(){
     const contenedorModal = document.querySelector('#modal-container');
-
+    modalPersonajes.style.opacity = "0";
+    modalPersonajes.style.left = "-50%";
     while(contenedorModal.firstChild){
         contenedorModal.removeChild(contenedorModal.firstChild)
     }
+    
 }
 
+//FAVORITOS
+function agregarFavorito(personaje){
+    const Favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    localStorage.setItem('favoritos',JSON.stringify([...Favoritos,personaje]));
+}
+
+function existeFavorito({id}){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    return favoritos.some( personaje => personaje.id === id);
+}
+
+function eliminarFavorito({id}){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    const nuevosFavoritos = favoritos.filter(personaje => personaje.id !== id);
+    localStorage.setItem('favoritos',JSON.stringify(nuevosFavoritos));
+}
+
+function mostrarFavoritos(){
+    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+
+    mostrarHTMLPersonajes(favoritos);
+}
 
 //PAGINACION
 

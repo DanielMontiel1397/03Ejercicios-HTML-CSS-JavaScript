@@ -63,7 +63,7 @@ nav ul li a:hover{
 
 #personajes-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    grid-template-columns: repeat(auto-fit, minmax(250px,auto));
     gap: 20px;
     margin: 0 auto;
     width: 80%;
@@ -136,22 +136,32 @@ nav ul li a:hover{
   }
 
   /* ESTILOS MODAL */
-  #modal-container .descripcion-personaje{
-    width: auto;
-    height: 70vh;
-    top: 40px;
-    left: 50%;
-    position: fixed;
+ #modal-container{
+  top: 80px;
+  left: -50%;
+  opacity: 0;
+  width: 60%;
+  height: 70vh;
+  transform: translate(-60%, 0);
+  transition: 0.5s all ease-in-out;
+  position: fixed;
+  box-sizing: content-box;
+  padding: 20px;
+  background-color: #dde1d7;
+  border-radius: 30px;
+  box-shadow: inset 0 0 20px 3px black;
+} 
+
+
+#modal-container .descripcion-personaje{
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    transform: translate(-50%, 10vh);
-    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    background-color: #dde1d7;
-    border-radius: 30px;
-    box-shadow: inset 0 0 20px 3px black;
+    
   }
 
   #modal-container .cerrar{
@@ -173,6 +183,7 @@ nav ul li a:hover{
 
   .contenedor-personaje{
     display: flex;
+    justify-content: space-around;
     gap: 20px;
     height: 70%;
   }
@@ -180,8 +191,7 @@ nav ul li a:hover{
   .contenedor-imagen-modal{
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-    width: 50%;
+    width: auto;
   }
 
   .contenedor-imagen-modal img{
@@ -192,7 +202,7 @@ nav ul li a:hover{
 
   .contenedor-informacion-modal{
     overflow:auto;
-    width: 50%;
+    width: 60%;
     border: 3px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -279,11 +289,18 @@ nav ul li a:hover{
       display: none;
     }
 
+    /* PERSONAJES */
+    #personajes-container{
+      width: 90%;
+    }
     /* MODAL */
+    #modal-container{
+      transform: translate(-50%, 0);
+      left: -40%;
+      width: 90%;
+    }
+
     #modal-container .descripcion-personaje{
-      width: 80%;
-      height: 85vh;
-      top: 10px;
       padding: 10px;
       gap: 5px;
     }
