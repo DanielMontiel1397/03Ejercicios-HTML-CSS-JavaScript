@@ -1,0 +1,319 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: sans-serif;
+    position: relative;
+}
+
+main{
+    width: 100%;
+    padding: 100px 0 50px 0;
+}
+
+/* HEADER */
+#header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00005d;
+    padding: 10px;
+    color: hsl(357, 85%, 64%);
+}
+
+#header h2{
+    font-size: 4rem;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: white;
+    transition: 0.3s all ease-in-out;
+}
+
+nav ul li a:hover{
+  color: red;
+}
+
+/* LISTA PERSONAJES */
+#personajes{
+    width: 100%;
+    position: relative;
+}
+
+#personajes-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    gap: 20px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.card-container {
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(rgba(143, 66, 66, 0.5), rgba(143,66,66,.3)), url("../assets/00_ShengLong.jpg");
+    background-size: cover;
+    background-position: center left;
+}
+.card-container .image-container {
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-container .image-container img {
+    width: 200px;
+    height: 300px;
+    transition: 0.5s ease-in-out;
+  }
+  
+  .card-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgb(12, 12, 12);
+    border-radius: inherit;
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+  }
+  
+  .card-container:hover img {
+    filter: grayscale(0.5) brightness(0.5);
+  }
+
+  .card-container:hover::after {
+    opacity: 1;
+    inset: 40px;
+  }
+  
+  .informacion-personaje{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    color: white;
+  }
+
+  .informacion-personaje h2{
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    font-size: 2.6rem;
+    color: yellow;
+  }
+
+  .informacion-personaje p{
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  .card-container:hover .informacion-personaje{
+    opacity: 1;
+  }
+
+  /* ESTILOS MODAL */
+  #modal-container .descripcion-personaje{
+    width: auto;
+    height: 70vh;
+    top: 40px;
+    left: 50%;
+    position: fixed;
+    margin: 0 auto;
+    transform: translate(-50%, 10vh);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #dde1d7;
+    border-radius: 30px;
+    box-shadow: inset 0 0 20px 3px black;
+  }
+
+  #modal-container .cerrar{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    margin-left: auto;
+    font-size: 2.4rem;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+  }
+
+  #modal-container .cerrar:hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 15px 2px lightblue;
+  }
+
+  .contenedor-personaje{
+    display: flex;
+    gap: 20px;
+    height: 70%;
+  }
+
+  .contenedor-imagen-modal{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 50%;
+  }
+
+  .contenedor-imagen-modal img{
+    width: 100%;
+    height: 90%;
+    filter: drop-shadow(0 0 20px black);
+  }
+
+  .contenedor-informacion-modal{
+    overflow:auto;
+    width: 50%;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .contenedor-informacion-modal h2{
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: rgb(87, 87, 26);
+  }
+
+  .contenedor-informacion-modal p{
+    font-size: 2.7rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .contenedor-informacion-modal span{
+    font-weight: normal;
+  }
+  
+
+  .contenedor-botones-modal{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 15px;
+  }
+
+  .contenedor-botones-modal button{
+    height: 50px;
+    width: 30%;
+    font-size: 2rem;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 15px 2px black;
+    transition: 0.3s all ease-in-out;
+  }
+
+  .contenedor-botones-modal .btnFavoritos{
+    background-color: aqua;
+  }
+
+  .contenedor-botones-modal .btnCerrar{
+    background-color: rgba(255, 0, 0, 0.658);
+  }
+
+  .contenedor-botones-modal button:hover{
+    transform: scale(1.05);
+  }
+  
+
+  /* ESTILOS PAGINACION */
+  #paginacion{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+
+  }
+  #paginacion a{
+    width: 30px;
+    height: 30px;
+    background-color: #003f69;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px){
+    #header nav{
+      display: none;
+    }
+
+    /* MODAL */
+    #modal-container .descripcion-personaje{
+      width: 80%;
+      height: 85vh;
+      top: 10px;
+      padding: 10px;
+      gap: 5px;
+    }
+
+    #modal-container .descripcion-personaje .contenedor-personaje{
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      height: 70%;
+      position: relative;
+    }
+
+    #modal-container .descripcion-personaje .contenedor-personaje .contenedor-imagen-modal{
+      margin: 0;
+      height: 100%;
+      position: absolute;
+      z-index: -9;
+      opacity: 0.5;
+    }
+
+    #modal-container .descripcion-personaje .contenedor-personaje .contenedor-informacion-modal{
+      width: 90%;
+      border: none;
+      padding: 0;
+      height: 100%;
+    }
+
+    #modal-container .descripcion-personaje .contenedor-botones-modal{
+      height: 30%;
+      margin: 0;
+      align-items: center;
+    }
+  }
