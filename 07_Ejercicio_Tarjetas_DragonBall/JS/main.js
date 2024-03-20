@@ -203,23 +203,23 @@ function borrarHTMLModal(){
 
 //FAVORITOS
 function agregarFavorito(personaje){
-    const Favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
-    localStorage.setItem('favoritos',JSON.stringify([...Favoritos,personaje]));
+    const Favoritos = JSON.parse(localStorage.getItem('favoritosDB')) ?? [];
+    localStorage.setItem('favoritosDB',JSON.stringify([...Favoritos,personaje]));
 }
 
 function existeFavorito({id}){
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    const favoritos = JSON.parse(localStorage.getItem('favoritosDB')) ?? [];
     return favoritos.some( personaje => personaje.id === id);
 }
 
 function eliminarFavorito({id}){
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    const favoritos = JSON.parse(localStorage.getItem('favoritosDB')) ?? [];
     const nuevosFavoritos = favoritos.filter(personaje => personaje.id !== id);
-    localStorage.setItem('favoritos',JSON.stringify(nuevosFavoritos));
+    localStorage.setItem('favoritosDB',JSON.stringify(nuevosFavoritos));
 }
 
 function mostrarFavoritos(){
-    const favoritos = JSON.parse(localStorage.getItem('favoritos')) ?? [];
+    const favoritos = JSON.parse(localStorage.getItem('favoritosDB')) ?? [];
 
     mostrarHTMLPersonajes(favoritos);
 }
@@ -258,4 +258,16 @@ function *crearPaginador(total){
     for(let i=1; i<=total; i++){
         yield i;
     }
+}
+
+//ESTILOS MENU RESPONSIVE
+
+const navResponsive = document.querySelector('.nav-responsive');
+
+navResponsive.addEventListener('click',menu);
+
+function menu(){
+    const nav = document.querySelector('#header nav');
+
+    nav.classList.toggle('responsive');
 }

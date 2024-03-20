@@ -15,7 +15,7 @@ body{
 
 main{
     width: 100%;
-    padding: 100px 0 50px 0;
+    padding: 80px 0 50px 0;
 }
 
 /* HEADER */
@@ -45,7 +45,7 @@ nav ul{
 
 nav ul li a{
     text-decoration: none;
-    font-size: 2.6rem;
+    font-size: 2.2rem;
     font-weight: bold;
     color: white;
     transition: 0.3s all ease-in-out;
@@ -53,6 +53,11 @@ nav ul li a{
 
 nav ul li a:hover{
   color: red;
+}
+
+#header .nav-responsive{
+  display: none;
+  cursor: pointer;
 }
 
 /* LISTA PERSONAJES */
@@ -285,14 +290,75 @@ nav ul li a:hover{
 
   /* RESPONSIVE */
   @media (max-width: 720px){
+    main{
+      padding: 50px 0;
+    }
+
+    /* HEADER */
+    #header {
+      position: fixed;
+    }
+
     #header nav{
-      display: none;
+      opacity: 0;
+      position: absolute;
+      transform: translate(0,-100%);
+      transition: 0.3s all ease-in-out;
+      width: 100%;
+    }
+
+    #header .responsive{
+      background-color: #00005d;
+      opacity: 1;
+      position: absolute;
+      transform: translate(0,90%);
+    }
+
+    #header nav ul{
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+    }
+
+    #header nav ul li a{
+      font-size: 2rem;
+    }
+
+    #header nav ul li a:hover{
+      color: red;
+    }
+
+    #header h2{
+      font-size: 3rem;
+    }
+
+    #header .nav-responsive{
+      display: block;
+    }
+
+    #header i{
+      font-size: 2.4rem;
+      transition: 0.3s all ease-in-out;
+    }
+
+    #header i:hover{
+      color: white;
+      transform: scale(1.1);
     }
 
     /* PERSONAJES */
+    #personajes{
+      margin-top: 50px;
+    }
+
+    #personajes-favoritos{
+      margin-top: 50px;
+    }
+
     #personajes-container{
       width: 90%;
     }
+
     /* MODAL */
     #modal-container{
       transform: translate(-50%, 0);
